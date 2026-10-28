@@ -21,7 +21,7 @@ export async function uploadFile(file:File,department:string,entityType:string,e
  if(!['image/jpeg','image/png','image/webp','application/pdf'].includes(file.type))throw new Error('Gunakan foto JPG, PNG, WEBP atau dokumen PDF');
  if(file.size>5*1024*1024)throw new Error('Ukuran file maksimal 5 MB');
  const path=`${department}/${entityType}/${entityId}/${crypto.randomUUID()}.${file.name.split('.').pop()?.toLowerCase()||'bin'}`;
- const {error}=await supabase.storage.from('kochi-files').upload(path,file,{contentType:file.type});if(error)throw new Error('Unggah file gagal. Silakan coba lagi.');
+ const {error}=await supabase.storage.from('kochi-files').upload(path,file,{contentType:file.type});if(error){console.error('[upload]',error);throw new Error('Unggah file gagal: '+error.message);}
  const result=await supabase.from('file_attachments').insert({entity_type:entityType,entity_id:entityId,department_id:department,bucket:'kochi-files',path,file_name:file.name,mime_type:file.type,size_bytes:file.size});
  if(result['error'])throw new Error('File tersimpan tetapi lampiran belum tercatat. Silakan coba lagi.');return path;
 }
