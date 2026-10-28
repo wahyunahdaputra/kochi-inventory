@@ -11,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { supabase } from '@/integrations/supabase/client';
 import { saveRow, performAction, type workspace } from '@/lib/kochi/data.functions';
 import { text, num, rupiah, type Row } from '@/lib/kochi/shared';
-import { PhotoInput } from '@/components/kochi/PhotoInput';
+import { PhotoInput } from '@/components/kochi/photoinput';
 export type Workspace=Awaited<ReturnType<typeof workspace>>;
 export type FormKind='inventory_items'|'asset_units'|'in'|'out'|'adjust'|'purchase'|'categories'|'units'|'suppliers'|'locations'|'assign'|'profiles'|'app_settings'|'reverse'|'cancel';
 type Field={key:string;label:string;type?:string;required?:boolean;options?:{value:string;label:string}[];min?:number|undefined};
