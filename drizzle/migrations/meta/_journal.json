@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792802906731,
+      "tag": "0000_kochi_inventory_core",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792938041267,
+      "tag": "0001_secure_access_and_files",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792974747660,
+      "tag": "0002_atomic_request_validation",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793062851504,
+      "tag": "0003_fix_audit_trigger_status_field",
+      "breakpoints": true
+    }
+  ]
+}
