@@ -197,3 +197,15 @@ body {font-family:var(--font-sans);letter-spacing:0;}
 @media(max-width:640px){.table-desktop{display:none;}.table-mobile{display:block;}.metric-card{padding:16px;}.panel-heading{padding:16px;}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 @media print{.app-sidebar,header,footer{display:none!important;}.app-content{margin-left:0;}.table-desktop{display:block;}.table-mobile{display:none;}.data-panel{border:0;box-shadow:none;}body{background:var(--card);}}
+
+.date-compact::-webkit-calendar-picker-indicator {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  margin-left: 2px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.date-compact::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
