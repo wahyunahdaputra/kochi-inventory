@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSuspenseQuery, queryOptions } from '@tanstack/react-query';
+import { useSuspenseQuery, useQuery, queryOptions } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 import { useServerFn } from '@tanstack/react-start';
 import { Plus, Search, Download, Printer, ChevronLeft, ChevronRight, Eye, Pencil, Archive, RotateCcw, ArrowDownToLine, ArrowUpFromLine, ShieldCheck, Package, X, LoaderCircle } from 'lucide-react';
