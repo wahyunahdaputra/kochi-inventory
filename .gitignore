@@ -33,4 +33,4 @@ dist-ssr
 
 .env
 
-.lovable
+# .lovable
