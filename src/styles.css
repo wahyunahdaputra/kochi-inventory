@@ -198,3 +198,14 @@ body {font-family:var(--font-sans);letter-spacing:0;}
 .date-compact::-webkit-datetime-edit-fields-wrapper {
   padding: 0;
 }
+
+/* Sembunyikan semua scrollbar, scroll tetap berfungsi */
+* {
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* Edge lama */
+}
+*::-webkit-scrollbar {
+  display: none;              /* Chrome, Edge, Safari */
+  width: 0;
+  height: 0;
+}
