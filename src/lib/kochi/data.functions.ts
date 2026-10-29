@@ -31,7 +31,7 @@ export const readPage=createServerFn({method:'GET'}).middleware([requireSupabase
  const [r,l]=await Promise.all([recent,low]);
  return {summary:summary as Row,rows:check(r) as Row[],low:check(l) as Row[],count:0};
  }
- const select=table==='inventory_items'?'*, departments(name,code), categories(name), units(name), suppliers(name), locations(name)':table==='stock_transactions'?'*, inventory_items(name,code),departments(name)':table==='purchases'?'*,suppliers(name),departments(name)':table==='asset_units'?'*,inventory_items(name),locations(name)':table==='profiles'?'*,departments(name)':'*';
+ const select=table==='inventory_items'?'*, departments(name,code), categories(name), units(name), suppliers(name), locations(name)':table==='stock_transactions'?'*, inventory_items(name,code),departments(name)':table==='purchases'?'*,suppliers(name),departments(name)':table==='asset_units'?'*,inventory_items(name),locations(name)':table==='profiles'?'*,departments(name)':['categories','locations'].includes(table)?'*,departments(name)':'*';
  let query=db.from(table).select(select,{count:'exact'});
  if(data.department && !['units','suppliers','app_settings'].includes(table)) query=query.eq('department_id',data.department);
  if(data.q){const q=data.q.replace(/[,%()]/g,''); if(table==='inventory_items') query=query.or(`name.ilike.%${q}%,code.ilike.%${q}%`);else if(table==='purchases')query=query.ilike('invoice_number',`%${q}%`);else if(table==='asset_units')query=query.ilike('asset_number',`%${q}%`);else if(table==='profiles')query=query.ilike('full_name',`%${q}%`);else if(['categories','units','suppliers','locations'].includes(table))query=query.ilike('name',`%${q}%`);}
